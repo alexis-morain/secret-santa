@@ -1,0 +1,277 @@
+/* Import des polices */
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --bg-color: #1e293b; 
+  --text-color: #2d3436; 
+  --primary-red: #ff3f34; 
+  --primary-green: #0fb9b1; 
+  --gold-accent: #ffd32a; 
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  background-image: linear-gradient(to bottom, #1e293b 0%, #0f172a 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'Mountains of Christmas', cursive;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* --- LA NEIGE AU PREMIER PLAN --- */
+.snow-layer {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none; 
+    z-index: 9999;
+    background-image: 
+        radial-gradient(4px 4px at 20% 30%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(6px 6px at 40% 70%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(3px 3px at 60% 20%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(4px 4px at 80% 50%, rgba(255,255,255,0.8), transparent);
+    background-size: 400px 400px;
+}
+.layer-1 { animation: snowfall 30s linear infinite; background-size: 600px 600px; opacity: 0.9; }
+.layer-2 { animation: snowfall 20s linear infinite; background-size: 300px 300px; opacity: 0.6; }
+
+@keyframes snowfall {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 600px; }
+}
+
+/* --- CONTENEUR & CARTE --- */
+#root {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  z-index: 10; 
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 30px;
+  padding: 3rem 2rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  animation: slideUpSpring 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.section-block {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed rgba(0,0,0,0.1);
+}
+.section-block:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.emoji {
+  font-family: "Segoe UI Emoji", "Noto Color Emoji", "Apple Color Emoji", sans-serif;
+  font-style: normal;
+  display: inline-block;
+}
+
+h1 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+  color: #ff3f34; 
+  text-shadow: 2px 2px 0px #ffd32a;
+  line-height: 1.2;
+}
+h2, h3 { font-family: 'Fredoka', sans-serif; color: #0fb9b1; font-weight: 600; }
+
+/* --- FORMULAIRES --- */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 20px auto;
+  width: 100%;
+}
+
+/* === MODIF ICI : ESPACEMENT ENTRE LES CHAMPS === */
+.input-field {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  padding: 15px 25px;
+  border-radius: 50px;
+  border: 2px solid #e0e0e0;
+  background: white;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px; /* AJOUT DE L'ESPACE ICI */
+}
+/* On enlève la marge pour l'input qui est DANS le groupe participant pour éviter que ça décale */
+.input-group input {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  padding: 15px 25px;
+  border-radius: 50px;
+  border: 2px solid #e0e0e0;
+  background: white;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0; 
+}
+
+.input-field:focus, .input-group input:focus {
+  outline: none;
+  border-color: #0fb9b1;
+  box-shadow: 0 0 0 4px rgba(15, 185, 177, 0.2);
+}
+
+textarea.input-field { min-height: 80px; resize: vertical; }
+
+/* --- BOUTONS --- */
+button {
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+button:hover { transform: translateY(-3px); }
+button:active { transform: translateY(-1px); }
+
+.input-group button { background: #0fb9b1; color: white; width: 100%; }
+
+.btn-lancer {
+  background: linear-gradient(45deg, #ff3f34, #ff7f50);
+  color: white;
+  font-size: 1.5rem;
+  width: 100%;
+  margin-top: 10px;
+  box-shadow: 0 10px 20px rgba(255, 63, 52, 0.3);
+}
+
+.btn-share {
+  background: white;
+  color: #0fb9b1;
+  border: 2px solid #0fb9b1;
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.btn-share:hover { background: #0fb9b1; color: white; }
+.btn-reset { background: transparent; color: #888; margin-top: 20px; }
+
+/* --- LISTE --- */
+ul { padding: 0; list-style: none; margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+li {
+  background: white;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 15px 8px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  border-bottom: 3px solid #ffd32a;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.btn-remove {
+  background: #ffeb3b; 
+  color: #ff3f34;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.btn-remove:hover { background: #ff3f34; color: white; transform: scale(1.1); }
+
+/* --- REVEAL STYLES --- */
+.reveal-card-closed {
+  border: 4px solid #ff3f34;
+  background: linear-gradient(135deg, #ffffff 0%, #fff0f0 100%);
+}
+.btn-cadeau {
+  font-size: 1.5rem;
+  padding: 20px 40px;
+  background: linear-gradient(45deg, #ff3f34, #ff0000);
+  color: white;
+  margin-top: 20px;
+  animation: shiver 0.5s infinite;
+}
+.reveal-card-open { background: white; }
+.reveal-subtitle { font-size: 2.2rem; margin-bottom: 10px; color: #0fb9b1; }
+.nom-cible {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #ff3f34;
+  text-shadow: 3px 3px 0px #ffd32a;
+  margin: 20px 0;
+  animation: popIn 0.8s;
+  word-break: break-word;
+}
+.infos-event {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: left;
+  border: 1px dashed #ccc;
+}
+.infos-event p { margin: 10px 0; }
+
+.footer-credits {
+  margin-top: 40px;
+  font-size: 0.85rem;
+  color: #636e72;
+  font-family: 'Poppins', sans-serif;
+  opacity: 0.8;
+}
+.footer-credits a { color: #ff3f34; text-decoration: none; font-weight: 700; }
+.footer-credits a:hover { text-decoration: underline; }
+
+/* Animations */
+@keyframes slideUpSpring { 0% { transform: translateY(100px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+@keyframes popIn { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+@keyframes shiver { 0% { transform: rotate(0deg); } 25% { transform: rotate(2deg); } 75% { transform: rotate(-2deg); } 100% { transform: rotate(0deg); } }
+
+/* --- BOUTON RETOUR HOME (Reveal Page) --- */
+.btn-create-own {
+  background: transparent;
+  border: 2px solid #2d3436;
+  color: #2d3436;
+  font-size: 1rem;
+  margin-top: 30px;
+  padding: 12px 25px;
+  width: auto; /* Ne prend pas toute la largeur */
+  display: inline-block;
+}
+
+.btn-create-own:hover {
+  background: #2d3436;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}

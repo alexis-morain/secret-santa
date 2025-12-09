@@ -1,0 +1,59 @@
+/* Import des polices */
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  /* --- NOUVELLE PALETTE SOMBRE --- */
+  --bg-color: #1e293b; /* Gris bleu très sombre (Nuit) */
+  --text-color: #2d3436; 
+  
+  --primary-red: #ff3f34; 
+  --primary-green: #0fb9b1; 
+  --gold-accent: #ffd32a; 
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  /* Fond dégradé sombre */
+  background-image: linear-gradient(to bottom, #1e293b 0%, #0f172a 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'Mountains of Christmas', cursive;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* --- LA NEIGE AU PREMIER PLAN --- */
+.snow-layer {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none; /* IMPORTANT : Permet de cliquer au travers */
+    z-index: 9999; /* Tout devant ! */
+    background-image: 
+        radial-gradient(4px 4px at 20% 30%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(6px 6px at 40% 70%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(3px 3px at 60% 20%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(4px 4px at 80% 50%, rgba(255,255,255,0.8), transparent);
+    background-size: 400px 400px;
+}
+
+.layer-1 { 
+    animation: snowfall 30s linear infinite; 
+    background-size: 600px 600px;
+    opacity: 0.9;
+}
+.layer-2 { 
+    animation: snowfall 20s linear infinite; 
+    background-size: 300px 300px; 
+    opacity: 0.6;
+}
+
+@keyframes snowfall {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 600px; }
+}
